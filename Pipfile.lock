@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e1da95beb4a1e143935b1611d8a0a14add0a03c83f481f2627f9c49431516e9f"
+            "sha256": "228c9301a3d768e38b555a3f9f1d4ead1e352be9ef55289d383071aecc742766"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -57,6 +57,13 @@
             ],
             "version": "==19.3.0"
         },
+        "certifi": {
+            "hashes": [
+                "sha256:017c25db2a153ce562900032d5bc68e9f191e44e9a0f762f373977de9df1fbb3",
+                "sha256:25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
+            ],
+            "version": "==2019.11.28"
+        },
         "chardet": {
             "hashes": [
                 "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae",
@@ -107,6 +114,14 @@
             ],
             "version": "==4.7.3"
         },
+        "requests": {
+            "hashes": [
+                "sha256:11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4",
+                "sha256:9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31"
+            ],
+            "index": "pypi",
+            "version": "==2.22.0"
+        },
         "typing-extensions": {
             "hashes": [
                 "sha256:091ecc894d5e908ac75209f10d5b4f118fbdb2eb1ede6a63544054bb1edb41f2",
@@ -115,6 +130,13 @@
             ],
             "markers": "python_version < '3.7'",
             "version": "==3.7.4.1"
+        },
+        "urllib3": {
+            "hashes": [
+                "sha256:a8a318824cc77d1fd4b2bec2ded92646630d7fe8619497b142c84a9e6f5a7293",
+                "sha256:f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
+            ],
+            "version": "==1.25.7"
         },
         "websockets": {
             "hashes": [
