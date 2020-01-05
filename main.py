@@ -19,9 +19,6 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
-
     if message.channel.id == int(os.environ['LOG_CHANNEL_ID']):
         if client.user in message.mentions:
             if message.author.voice != None:
@@ -36,12 +33,5 @@ async def on_message(message):
                 downloader.download(url)
                 source = discord.FFmpegPCMAudio("button.mp3")
                 client.voice_clients[0].play(source)
-
-
-
-
-
-
-
 
 client.run(os.environ['TOKEN'])
