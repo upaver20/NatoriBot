@@ -1,0 +1,2 @@
+TOKEN="<Your discord bot token>"
+LOG_CHANNEL_ID="<Channel ID to tell you what to say>"
