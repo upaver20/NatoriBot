@@ -18,6 +18,7 @@ def Sanabutton2Parser(msg):
                 if msg in str(button['value']):
                     cond_list.append(button['file-name'])
 
+    button_name = random.choice(cond_list)
+    button_url = 'https://www.natorisana.love/sounds/' + button_name + '.mp3'
 
-    button_url = 'https://www.natorisana.love/sounds/' + random.choice(cond_list) + '.mp3'
     return button_url
