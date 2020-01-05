@@ -26,9 +26,10 @@ async def on_message(message):
                     await message.author.voice.channel.connect()
                 if message.content.endswith('leave') and (client.voice_clients != []):
                     await client.voice_clients[0].disconnect()
-        else:
+        elif message.content != "":
             url = Sanabutton2Parser.Sanabutton2Parser(message.content)
-            await message.channel.send(url)
+            reply = f'{message.author.mention} {url}'
+            await message.channel.send(reply)
             if client.voice_clients[0].is_connected() and not client.voice_clients[0].is_playing():
                 downloader.download(url)
                 source = discord.FFmpegPCMAudio("button.mp3")
