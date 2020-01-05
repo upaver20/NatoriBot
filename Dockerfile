@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
       libsodium-dev \
       wget \
       xz-utils
-RUN wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz \
+RUN wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz \
       && tar Jxvf ./ffmpeg-release-amd64-static.tar.xz \
       && cp ./ffmpeg*amd64-static/ffmpeg /usr/local/bin/
 RUN pip install --upgrade pip
