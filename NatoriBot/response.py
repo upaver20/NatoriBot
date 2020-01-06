@@ -6,7 +6,7 @@ from NatoriBot.vc_wrapper import vc_wrapper
 async def voice_response(message, client):
     msg = message
     bot = vc_wrapper(client)
-    url = Sanabutton2Parser(msg.content)
+    url = Sanabutton2Parser(msg)
     reply = f'{msg.author.mention} {url}'
     await msg.channel.send(reply)
     if bot.is_in_vc:

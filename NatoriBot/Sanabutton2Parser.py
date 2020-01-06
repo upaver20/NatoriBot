@@ -15,7 +15,7 @@ def Sanabutton2Parser(msg):
     for category in jsonData:
         for archive in category:
             for button in archive:
-                if msg in str(button['value']):
+                if msg.content in str(button['value']):
                     cond_list.append(button['file-name'])
 
     button_name = random.choice(cond_list)
