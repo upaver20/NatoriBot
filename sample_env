@@ -1,2 +1,2 @@
-TOKEN="<Your discord bot token>"
-CHANNEL_ID="<Channel ID to tell you what to say>"
+TOKEN="<Botのトークン>"
+CHANNEL_ID="<Botの稼働するテキストチャンネルのID>"
