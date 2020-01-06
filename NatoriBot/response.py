@@ -8,10 +8,11 @@ async def voice_response(message, client):
     bot = vc_wrapper(client)
     urls = Sanabutton2Parser(msg)
     if urls == None:
-        reply = f"{msg.author.mention} {message.content}は見つかりませんでした"
+        reply = f"{msg.author.mention} {msg.content}は見つかりませんでした"
     else:
         reply = f"{msg.author.mention} \n 検索語句: {urls['msg']}\n アーカイブ: {urls['archive_url']}　\n ボタン: {urls['button_url']}"
     await msg.channel.send(reply)
+    await msg.delete()
     if bot.is_in_vc:
         if bot.voice.is_connected() and not bot.voice.is_playing() :
             download(urls['button_url'])
