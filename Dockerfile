@@ -7,6 +7,5 @@ RUN apk upgrade -U \
 && pip install pipenv --no-cache-dir \
 && pipenv install --system --deploy \
 && pip uninstall -y pipenv virtualenv-clone virtualenv \
-&& apk del build-base \
 && rm -rf ~/.cache/pip
 CMD ["python", "main.py"]
