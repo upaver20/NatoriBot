@@ -1,10 +1,10 @@
+
 import requests
 from bs4 import BeautifulSoup
 import random
 import re
 
-def Sanabutton2Parser(message):
-    msg = message.content
+def Sanabutton2Parser(msg):
     baseURL = "https://www.natorisana.love/"
     res = requests.get(baseURL)
 
@@ -16,7 +16,7 @@ def Sanabutton2Parser(message):
             cond_list.append(button.get("data-file"))
 
     if cond_list == []:
-        return None
+        return
 
     button_name = random.choice(cond_list)
     button_url = baseURL + 'sounds/' + button_name + '.mp3'
@@ -34,4 +34,7 @@ def Sanabutton2Parser(message):
         'archive_url' : archive_url,
         'msg' : msg
     }
-    return urls
+    print(urls)
+
+if __name__ == "__main__":
+    Sanabutton2Parser("おは")
