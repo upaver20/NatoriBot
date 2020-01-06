@@ -20,7 +20,7 @@
 
 ```docker build -t hoge:fuga```
 
-```docker run --name piyo hoge:fuga```
+```docker run --name piyo --env_file .env hoge:fuga```
 
 ## Usage
 
