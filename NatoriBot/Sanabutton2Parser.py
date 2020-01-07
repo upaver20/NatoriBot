@@ -5,7 +5,6 @@ import re
 
 def Sanabutton2Parser(message):
     msg = message
-    # msg = message.content
     baseURL = "https://www.natorisana.love/"
     res = requests.get(baseURL)
 
@@ -14,23 +13,24 @@ def Sanabutton2Parser(message):
     cond_list = []
     for button in soup.select(".sounds"):
         if msg in button.text:
-            cond_list.append(button.get("data-file"))
+            cond_list.append(button)
 
     if cond_list == []:
         return None
 
-    button_name = random.choice(cond_list)
-    button_url = baseURL + 'sounds/' + button_name + '.mp3'
-    archive_name = button_name.split('/')[0]
+    i = 0
 
-    archive_url = ""
-    for span in soup.select('span'):
-        if span.get("id") == None:
-            continue
-        span_id = span.get("id").split('/')[3]
-        if archive_name in span_id:
-            archive_url = span.find('a').attrs['href']
+    while True:
+        select_button = random.choice(cond_list)
+        select_span = select_button.find_previous_sibling('span')
+        if select_span.find('a') != None:
             break
+        if i > 5:
+            return None
+        i = i + 1
+
+    button_url = baseURL + 'sounds/' + select_button.get("data-file") + '.mp3'
+    archive_url = select_span.find('a').attrs['href']
 
     urls = {
         'button_url' : button_url,
@@ -41,4 +41,5 @@ def Sanabutton2Parser(message):
     return urls
 
 if __name__ == "__main__":
-    print(Sanabutton2Parser("おはようございナース（ポケセン）"))
+    fuga = Sanabutton2Parser("お")
+    print(fuga)

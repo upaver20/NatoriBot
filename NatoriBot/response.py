@@ -6,7 +6,7 @@ from NatoriBot.vc_wrapper import vc_wrapper
 async def voice_response(message, client):
     msg = message
     bot = vc_wrapper(client)
-    urls = Sanabutton2Parser(msg)
+    urls = Sanabutton2Parser(msg.content)
     if urls == None:
         reply = f"{msg.author.mention} {msg.content}は見つかりませんでした"
         return
