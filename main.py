@@ -19,10 +19,11 @@ async def on_message(message):
         return
 
     if message.channel.id == int(os.environ['CHANNEL_ID']):
-       #  bot = vc_wrapper(client.voice_clients)
         if client.user in message.mentions:
             await vc_access(message, client)
         elif message.content != "":
             await voice_response(message, client)
+        else:
+            return
 
 client.run(os.environ['TOKEN'])
