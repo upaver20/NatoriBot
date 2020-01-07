@@ -1,2 +1,2 @@
-TOKEN="<Botのトークン>"
-CHANNEL_ID="<Botの稼働するテキストチャンネルのID>"
+TOKEN=Botのトークン
+CHANNEL_ID=Botの稼働するテキストチャンネルのID
