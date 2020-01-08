@@ -17,7 +17,6 @@ def reaction(client, message):
     start = list(url_list)[1].span()[0]
     end = len(msg)
     url = msg[start:end]
-    print(url)
 
     if url.startswith('https://www.natorisana.love/') and url.endswith('.mp3') and bot.is_in_vc:
         say_in_vc(url, bot)
