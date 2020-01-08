@@ -18,11 +18,14 @@ async def voice_response(message, client):
         await msg.delete()
 
     if bot.is_in_vc:
-        if bot.voice.is_connected() and not bot.voice.is_playing():
-            download(urls['button_url'])
-            source = discord.FFmpegPCMAudio("button.mp3")
-            bot.voice.play(source)
-        else:
-            return
+        say_in_vc(urls['button_url'], bot)
+    else:
+        return
+
+def say_in_vc(url, bot):
+    if bot.voice.is_connected() and not bot.voice.is_playing():
+        download(url)
+        source = discord.FFmpegPCMAudio("button.mp3")
+        bot.voice.play(source)
     else:
         return
