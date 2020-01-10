@@ -36,7 +36,7 @@ def Sanabutton2Parser(message):
     if button_url.startswith(baseURL) and button_url.endswith('.mp3') and archive_url.startswith('https://youtu.be/'):
         urls = {
             'button_url' : button_url,
-            'archive_url' : archive_url,
+            'archive_url' : '<' + archive_url + '>',
             'msg' : msg
         }
         return urls
