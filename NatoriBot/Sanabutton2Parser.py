@@ -33,18 +33,15 @@ def Sanabutton2Parser(message):
 
     button_url = baseURL + 'sounds/' + select_button.get("data-file") + '.mp3'
 
-    urls = {
-        'button_url' : button_url,
-        'archive_url' : archive_url,
-        'msg' : msg
-    }
-
-    if urls["button_url"].startswith('https://www.natorisana.love/') and urls["button_url"].endswith('.mp3') and urls["archive_url"].startswith('https://youtu.be/'):
+    if button_url.startswith(baseURL) and button_url.endswith('.mp3') and archive_url.startswith('https://youtu.be/'):
+        urls = {
+            'button_url' : button_url,
+            'archive_url' : archive_url,
+            'msg' : msg
+        }
         return urls
     else:
         return None
-
-    return urls
 
 def archive_parser(button, soup):
     archive_name = button.get("data-file").split('/')[0]
