@@ -38,7 +38,7 @@ async def on_raw_reaction_add(payload):
         channel = await client.fetch_channel(channel_id)
         message = await channel.fetch_message(msg_id)
         reaction(client, message)
-    return
+        return
 
 
 client.run(os.environ['TOKEN'])
