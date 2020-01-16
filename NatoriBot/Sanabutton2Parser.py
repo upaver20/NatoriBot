@@ -18,22 +18,16 @@ def Sanabutton2Parser(message):
     if cond_list == []:
         return None
 
-    i = 0
-    archive_url = ''
-    while True:
-        select_button = random.choice(cond_list)
-        select_span = select_button.find_previous_sibling('span')
-        if select_span.find('a') != None:
-            archive_url = select_span.find('a').attrs['href']
-            break
-        if i > 5:
-            archive_url = archive_parser(select_button, soup)
-            break
-        i = i + 1
-
     button_url = baseURL + 'sounds/' + select_button.get("data-file") + '.mp3'
 
-    if button_url.startswith(baseURL) and button_url.endswith('.mp3') and archive_url.startswith('https://youtu.be/'):
+    select_button = random.choice(cond_list)
+    select_span = select_button.find_previous_sibling('span')
+    if select_span.find('a') != None:
+        archive_url = select_span.find('a').attrs['href']
+    else:
+        archive_url = archive_parser(select_button, soup)
+
+    if archive_url.startswith('https://youtu.be/'):
         urls = {
             'button_url' : button_url,
             'archive_url' : '<' + archive_url + '>',
