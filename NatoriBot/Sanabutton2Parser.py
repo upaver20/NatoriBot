@@ -18,9 +18,9 @@ def Sanabutton2Parser(message):
     if cond_list == []:
         return None
 
+    select_button = random.choice(cond_list)
     button_url = baseURL + 'sounds/' + select_button.get("data-file") + '.mp3'
 
-    select_button = random.choice(cond_list)
     select_span = select_button.find_previous_sibling('span')
     if select_span.find('a') != None:
         archive_url = select_span.find('a').attrs['href']
