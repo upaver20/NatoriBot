@@ -8,5 +8,7 @@ async def vc_access(message, client):
     if msg.author.voice is not None:
         if msg.content.endswith('join') and not bot.is_in_vc:
             await msg.author.voice.channel.connect()
+            print("voice channel joined!")
         if msg.content.endswith('leave') and bot.is_in_vc:
             await bot.voice.disconnect()
+            print("voice channel leaved")

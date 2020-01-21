@@ -15,14 +15,15 @@ async def voice_response(message, client):
         return
     else:
         reply = f"{msg.author.mention} \n"\
-                "検索語句: {urls['msg']}\n"\
-                "アーカイブ: {urls['archive_url']}\n"\
-                "ボタン: {urls['button_url']}"
+                f"検索語句: {urls['msg']}\n"\
+                f"アーカイブ: {urls['archive_url']}\n"\
+                f"ボタン: {urls['button_url']}"
         await msg.channel.send(reply)
         await msg.delete()
 
     if bot.is_in_vc:
         say_in_vc(urls['button_url'], bot)
+        print("Talked!")
     else:
         return
 
