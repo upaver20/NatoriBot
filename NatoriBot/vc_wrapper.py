@@ -1,5 +1,6 @@
 import discord
 
+
 class vc_wrapper():
     def __init__(self, client):
         if client.voice_clients != []:

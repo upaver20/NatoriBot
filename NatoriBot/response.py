@@ -3,17 +3,21 @@ from NatoriBot.Sanabutton2Parser import Sanabutton2Parser
 from NatoriBot.downloader import download
 from NatoriBot.vc_wrapper import vc_wrapper
 
+
 async def voice_response(message, client):
     msg = message
     bot = vc_wrapper(client)
     urls = Sanabutton2Parser(msg.content)
-    if urls == None:
+    if urls is None:
         reply = f"{msg.author.mention} {msg.content}は見つかりませんでした"
         await msg.channel.send(reply)
         await msg.delete()
         return
     else:
-        reply = f"{msg.author.mention} \n 検索語句: {urls['msg']}\n アーカイブ: {urls['archive_url']}　\n ボタン: {urls['button_url']}"
+        reply = f"{msg.author.mention} \n"\
+                "検索語句: {urls['msg']}\n"\
+                "アーカイブ: {urls['archive_url']}\n"\
+                "ボタン: {urls['button_url']}"
         await msg.channel.send(reply)
         await msg.delete()
 
@@ -21,6 +25,7 @@ async def voice_response(message, client):
         say_in_vc(urls['button_url'], bot)
     else:
         return
+
 
 def say_in_vc(url, bot):
     if bot.voice.is_connected() and not bot.voice.is_playing():

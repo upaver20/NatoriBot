@@ -6,6 +6,7 @@ from NatoriBot.reaction import reaction
 
 client = discord.Client()
 
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -32,7 +33,7 @@ async def on_message(message):
 async def on_raw_reaction_add(payload):
     msg_id = payload.message_id
     channel_id = payload.channel_id
-    if channel_id  != int(os.environ['CHANNEL_ID']):
+    if channel_id != int(os.environ['CHANNEL_ID']):
         return
     else:
         channel = await client.fetch_channel(channel_id)
