@@ -3,7 +3,7 @@ import urllib.parse
 import sys
 import os
 
-file_name = "button.mp3"
+file_name = "/tmp/button.mp3"
 
 
 def download(url_ja):
