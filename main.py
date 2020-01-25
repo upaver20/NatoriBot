@@ -42,4 +42,4 @@ async def on_raw_reaction_add(payload):
         return
 
 
-client.run(os.environ['TOKEN'])
+client.run(os.environ['TOKEN'],reconnect=False)
