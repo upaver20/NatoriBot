@@ -7,7 +7,7 @@ from NatoriBot.reaction import reaction
 client = discord.Client()
 
 if not discord.opus.is_loaded():
-    discord.opus.load_opus("heroku-buildpack-libopus")
+    discord.opus.load_opus('opus')
 
 
 @client.event
