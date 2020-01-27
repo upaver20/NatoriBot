@@ -6,6 +6,9 @@ from NatoriBot.reaction import reaction
 
 client = discord.Client()
 
+if not discord.opus.is_loaded():
+    discord.opus.load_opus("heroku-buildpack-libopus")
+
 
 @client.event
 async def on_ready():
@@ -42,4 +45,4 @@ async def on_raw_reaction_add(payload):
         return
 
 
-client.run(os.environ['TOKEN'],reconnect=False)
+client.run(os.environ['TOKEN'], reconnect=False)
