@@ -10,6 +10,7 @@ async def voice_response(message, client):
     urls = Sanabutton2Parser(msg.content)
     if urls is None:
         reply = f"{msg.author.mention} {msg.content}は見つかりませんでした"
+        print(reply)
         await msg.channel.send(reply)
         await msg.delete()
         return
@@ -18,6 +19,7 @@ async def voice_response(message, client):
                 f"検索語句: {urls['msg']}\n"\
                 f"アーカイブ: {urls['archive_url']}\n"\
                 f"ボタン: {urls['button_url']}"
+        print(reply)
         await msg.channel.send(reply)
         await msg.delete()
 
