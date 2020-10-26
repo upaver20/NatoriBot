@@ -31,7 +31,7 @@ async def vc_access(message, client):
                 f"検索結果からランダムに音声を再生します．\n"\
                 f"```任意の文字列```\n"\
                 f"これです．\n"\
-                f"```@{client.user.name} help```"
+                f"```@{client.user} help```"
 
             print(reply)
             await msg.channel.send(reply)
