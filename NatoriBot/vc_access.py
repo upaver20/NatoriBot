@@ -18,7 +18,7 @@ async def vc_access(message, client):
             print(reply)
             await msg.channel.send(reply)
 
-        if msg.content.endswith('help') and bot.is_in_vc:
+        if msg.content.endswith('help'):
             reply = \
                 f"さなボタン(2)様にある音声をDiscordに流すBotです．\n"\
                 f"<https://www.natorisana.love/>\n"\
