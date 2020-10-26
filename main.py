@@ -40,7 +40,7 @@ async def on_message(message):
 async def on_raw_reaction_add(payload):
     msg_id = payload.message_id
     channel_id = payload.channel_id
-    if channel_id = int(os.environ['CHANNEL_ID']):
+    if channel_id == int(os.environ['CHANNEL_ID']):
         channel = await client.fetch_channel(channel_id)
         message = await channel.fetch_message(msg_id)
         reaction(client, message)
