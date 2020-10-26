@@ -36,6 +36,5 @@ async def vc_access(message, client):
             print(reply)
             await msg.channel.send(reply)
 
-        await msg.delete()
-
+    await msg.delete()
     return

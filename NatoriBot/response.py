@@ -12,7 +12,6 @@ async def voice_response(message, client):
         reply = f"{msg.author.mention} {msg.content}は見つかりませんでした"
         print(reply)
         await msg.channel.send(reply)
-        await msg.delete()
     else:
         reply = f"{msg.author.mention} \n"\
                 f"検索語句: {urls['msg']}\n"\
@@ -20,11 +19,11 @@ async def voice_response(message, client):
                 f"ボタン: {urls['button_url']}"
         print(reply)
         await msg.channel.send(reply)
-        await msg.delete()
         if bot.is_in_vc:
             say_in_vc(urls['button_url'], bot)
             print("Talked!")
 
+    await msg.delete()
     return
 
 
