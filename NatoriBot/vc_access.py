@@ -24,14 +24,15 @@ async def vc_access(message, client):
                 f"<https://www.natorisana.love/>\n"\
                 f"\n"\
                 f"使い方：\n"\
-                f"```@{client.user} join```\n"\
                 f"あなたがいるボイスチャンネルに入室します．\n"\
-                f"```@{client.user} leave```\n"\
+                f"```@{client.user} join```\n"\
                 f"ボイスチャンネルから退室します．\n"\
-                f"```任意の文字列\n```"\
+                f"```@{client.user} leave```\n"\
                 f"検索結果からランダムに音声を再生します．\n"\
-                f"```@{client.user} help```\n"\
-                f"これです．"
+                f"```任意の文字列```\n"\
+                f"これです．\n"\
+                f"```@{client.user.name} help```"
+
             print(reply)
             await msg.channel.send(reply)
 
