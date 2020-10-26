@@ -8,3 +8,4 @@ class vc_wrapper():
             self.is_in_vc = True
         else:
             self.is_in_vc = False
+        return

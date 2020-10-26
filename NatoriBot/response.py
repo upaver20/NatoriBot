@@ -13,7 +13,6 @@ async def voice_response(message, client):
         print(reply)
         await msg.channel.send(reply)
         await msg.delete()
-        return
     else:
         reply = f"{msg.author.mention} \n"\
                 f"検索語句: {urls['msg']}\n"\
@@ -22,12 +21,11 @@ async def voice_response(message, client):
         print(reply)
         await msg.channel.send(reply)
         await msg.delete()
+        if bot.is_in_vc:
+            say_in_vc(urls['button_url'], bot)
+            print("Talked!")
 
-    if bot.is_in_vc:
-        say_in_vc(urls['button_url'], bot)
-        print("Talked!")
-    else:
-        return
+    return
 
 
 def say_in_vc(url, bot):
@@ -35,5 +33,5 @@ def say_in_vc(url, bot):
         download(url)
         source = discord.FFmpegPCMAudio("/tmp/button.mp3")
         bot.voice.play(source)
-    else:
-        return
+
+    return

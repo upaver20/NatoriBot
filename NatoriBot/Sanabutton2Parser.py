@@ -49,8 +49,3 @@ def archive_parser(button, soup):
             archive_url = span.find('a').attrs['href']
             break
     return archive_url
-
-
-if __name__ == "__main__":
-    fuga = Sanabutton2Parser("お")
-    print(fuga)

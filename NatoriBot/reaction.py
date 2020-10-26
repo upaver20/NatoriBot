@@ -22,5 +22,5 @@ def reaction(client, message):
     if url.startswith('https://www.natorisana.love/') and \
             url.endswith('.mp3') and bot.is_in_vc:
         say_in_vc(url, bot)
-    else:
-        return
+
+    return
