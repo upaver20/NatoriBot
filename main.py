@@ -6,6 +6,11 @@ from NatoriBot.reaction import reaction
 
 client = discord.Client()
 
+"""
+if not discord.opus.is_loaded():
+    discord.opus.load_opus("opus")
+"""
+
 
 @client.event
 async def on_ready():
@@ -13,6 +18,7 @@ async def on_ready():
     channel_id = int(os.environ['CHANNEL_ID'])
     channel = client.get_channel(channel_id)
     await channel.send(content="おはようござい🍆")
+    return
 
 
 @client.event
@@ -27,19 +33,18 @@ async def on_message(message):
             await voice_response(message, client)
         else:
             return
+    return
 
 
 @client.event
 async def on_raw_reaction_add(payload):
     msg_id = payload.message_id
     channel_id = payload.channel_id
-    if channel_id != int(os.environ['CHANNEL_ID']):
-        return
-    else:
+    if channel_id == int(os.environ['CHANNEL_ID']):
         channel = await client.fetch_channel(channel_id)
         message = await channel.fetch_message(msg_id)
         reaction(client, message)
-        return
+    return
 
 
 client.run(os.environ['TOKEN'], reconnect=False)

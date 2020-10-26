@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "76657455f97eab18b1b3dcea76e855dadd44db10316e191416353ef3521bf80c"
+            "sha256": "438e3c22234197e4079b82e04211d540c241e61d4ef62972e6f784156d0db21a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -113,6 +113,9 @@
             "version": "==3.0.4"
         },
         "discord-py": {
+            "extras": [
+                "voice"
+            ],
             "hashes": [
                 "sha256:2367359e31f6527f8a936751fc20b09d7495dd6a76b28c8fb13d4ca6c55b7563"
             ],

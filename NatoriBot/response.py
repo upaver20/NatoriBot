@@ -10,22 +10,21 @@ async def voice_response(message, client):
     urls = Sanabutton2Parser(msg.content)
     if urls is None:
         reply = f"{msg.author.mention} {msg.content}は見つかりませんでした"
+        print(reply)
         await msg.channel.send(reply)
-        await msg.delete()
-        return
     else:
         reply = f"{msg.author.mention} \n"\
                 f"検索語句: {urls['msg']}\n"\
                 f"アーカイブ: {urls['archive_url']}\n"\
                 f"ボタン: {urls['button_url']}"
+        print(reply)
         await msg.channel.send(reply)
-        await msg.delete()
+        if bot.is_in_vc:
+            say_in_vc(urls['button_url'], bot)
+            print("Talked!")
 
-    if bot.is_in_vc:
-        say_in_vc(urls['button_url'], bot)
-        print("Talked!")
-    else:
-        return
+    await msg.delete()
+    return
 
 
 def say_in_vc(url, bot):
@@ -33,5 +32,5 @@ def say_in_vc(url, bot):
         download(url)
         source = discord.FFmpegPCMAudio("button.mp3")
         bot.voice.play(source)
-    else:
-        return
+
+    return
