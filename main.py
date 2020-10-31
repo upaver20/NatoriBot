@@ -17,7 +17,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     channel_id = int(os.environ['CHANNEL_ID'])
     channel = client.get_channel(channel_id)
-    await channel.send(content="おはようござい🍆")
+    # await channel.send(content="おはようござい🍆")
     return
 
 
