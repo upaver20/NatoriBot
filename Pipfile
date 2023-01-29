@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 "discord.py" = {extras = ["voice"], version = "*"}
+python-dotenv = "*"
+requests = "*"
 
 [dev-packages]
 
