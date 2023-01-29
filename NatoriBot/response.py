@@ -15,7 +15,6 @@ async def voice_response(message, client):
     else:
         reply = f"{msg.author.mention} \n"\
                 f"検索語句: {urls['msg']}\n"\
-                f"アーカイブ: {urls['archive_url']}\n"\
                 f"ボタン: {urls['button_url']}"
         print(reply)
         await msg.channel.send(reply)
