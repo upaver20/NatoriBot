@@ -1,10 +1,17 @@
 import discord
 import os
+from dotenv import load_dotenv
 from NatoriBot.vc_access import vc_access
 from NatoriBot.response import voice_response
 from NatoriBot.reaction import reaction
 
-client = discord.Client()
+load_dotenv()
+
+intents = discord.Intents.default()
+intents.messages = True
+intents.message_content = True
+intents.reactions = True
+client = discord.Client(intents=intents)
 
 """
 if not discord.opus.is_loaded():
@@ -27,6 +34,7 @@ async def on_message(message):
         return
 
     if message.channel.id == int(os.environ['CHANNEL_ID']):
+        print(message.content)
         if client.user in message.mentions:
             await vc_access(message, client)
         elif message.content != "":
