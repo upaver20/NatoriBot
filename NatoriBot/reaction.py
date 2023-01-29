@@ -12,10 +12,10 @@ def reaction(client, message):
     itr_list = re.finditer(pattern, msg)
     url_list = list(itr_list)
 
-    if url_list == [] or len(url_list) < 2:
+    if url_list == [] or len(url_list) < 1:
         return
 
-    start = list(url_list)[1].span()[0]
+    start = list(url_list)[0].span()[0]
     end = len(msg)
     url = msg[start:end]
 
