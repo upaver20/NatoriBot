@@ -1,4 +1,3 @@
-import discord
 from NatoriBot.vc_wrapper import vc_wrapper
 
 

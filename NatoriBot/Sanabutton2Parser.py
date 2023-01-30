@@ -1,4 +1,3 @@
-import requests
 import random
 import json
 
@@ -6,7 +5,7 @@ import json
 def Sanabutton2Parser(message):
     msg = message
 
-    baseURL = "https://www.natorisana.love/"
+    baseURL = "https://www.natorisana.love/sounds/"
 
     posts = json.load(open('data/posts.json', 'r'))
 
@@ -17,8 +16,10 @@ def Sanabutton2Parser(message):
             for buttons in archive['buttons']:
                 for button in buttons:
                     if msg in str(button['value']):
-                        cond_list.append(
-                            {"file-name": button['file-name'], "stream_id": archive['stream_id']})
+                        match_botton = {
+                            "file-name": button['file-name'],
+                            "stream_id": archive['stream_id']}
+                        cond_list.append(match_botton)
 
     if cond_list == []:
         return None
@@ -26,7 +27,7 @@ def Sanabutton2Parser(message):
     select_button = random.choice(cond_list)
 
     urls = {
-        'button_url': baseURL + "sounds/" + select_button['file-name'] + ".mp3",
+        'button_url': baseURL + select_button['file-name'] + ".mp3",
         'archive_url': "https://youtu.be/" + select_button['stream_id'],
         'msg': msg
     }

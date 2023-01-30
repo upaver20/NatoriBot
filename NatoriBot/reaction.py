@@ -1,8 +1,6 @@
-import discord
 from NatoriBot.response import say_in_vc
 from NatoriBot.vc_wrapper import vc_wrapper
 import re
-import urllib.parse
 
 
 def reaction(client, message):
