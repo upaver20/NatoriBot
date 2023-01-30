@@ -132,4 +132,4 @@ dmypy.json
 .vscode/
 
 # cachefile
-button.mp3
+data/

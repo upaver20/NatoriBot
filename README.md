@@ -4,9 +4,11 @@
 
 ## Setup
 
-```.env``` ファイルを作成/編集
+1. ```.env``` ファイルを作成/編集
 
 ```cp sample_env .env```
+
+2. data ディレクトリ内に posts.json を用意
 
 ### そのまま動かす場合
 
@@ -20,7 +22,7 @@
 
 ```docker build -t hoge:fuga```
 
-```docker run --name piyo --env_file .env hoge:fuga```
+```docker run --name piyo --env_file .env -v $(pwd)/data:/app/data hoge:fuga```
 
 ## Usage
 
