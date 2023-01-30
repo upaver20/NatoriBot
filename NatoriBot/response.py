@@ -29,7 +29,7 @@ async def voice_response(message, client):
 def say_in_vc(url, bot):
     if bot.voice.is_connected() and not bot.voice.is_playing():
         download(url)
-        source = discord.FFmpegPCMAudio("button.mp3")
+        source = discord.FFmpegPCMAudio("data/button.mp3")
         bot.voice.play(source)
 
     return
